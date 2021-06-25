@@ -2,9 +2,7 @@ package com.webapp.projects.firstwebapp.controller;
 
 import com.webapp.projects.firstwebapp.repository.CourseRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
@@ -29,5 +27,23 @@ public class CourseController{
         }
         return courseById.get();
     }
+
+
+    @PostMapping("/courses")
+    public void createCourse(@RequestBody Course course) {
+        repository.save(course);
+    }
+
+    @PutMapping("/courses/{id}")
+    public void updateCourse(@PathVariable long id, @RequestBody Course course) {
+        repository.save(course);
+    }
+
+    @DeleteMapping("/courses/{id}")
+    public void deleteCourse(@PathVariable long id) {
+        repository.deleteById(id);
+    }
+
+
 
 }
