@@ -8,7 +8,10 @@ import java.util.List;
 
 @RestController
 public class CourseController{
-    List<Course> courses=Arrays.asList(new Course(1, "java", "Object oriented programming", "veera"), new Course(2, "react", "Declarative Programming Language", "veera"));
+    List<Course> courses=Arrays.asList(
+            new Course(1, "java", "Object oriented programming", "veera"),
+            new Course(2, "react", "Declarative Programming Language", "veera"),
+            new Course(3, "NodeJS", "Declarative Programming Language", "veera"));
     @GetMapping("/courses")
     public List<Course> getAllCourses() {
         return courses;
